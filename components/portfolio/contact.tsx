@@ -40,7 +40,7 @@ export function Contact() {
         transition={{ duration: 0.6 }}
         className="flex items-center gap-4 mb-8"
       >
-        <span className="text-sm uppercase tracking-[0.3em] text-primary">06</span>
+        <span className="text-sm uppercase tracking-[0.3em] text-primary">07</span>
         <div className="w-12 h-[1px] bg-border" />
         <span className="text-sm uppercase tracking-[0.3em] text-muted-foreground">Contact</span>
       </motion.div>

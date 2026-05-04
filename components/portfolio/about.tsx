@@ -73,7 +73,7 @@ export function About() {
               <div className="text-sm text-muted-foreground">University of Cincinnati</div>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-2">3.6</div>
+              <div className="text-3xl font-bold mb-2">4</div>
               <div className="text-sm text-muted-foreground">GPA</div>
               <div className="text-sm text-muted-foreground">Graduate Studies</div>
             </div>

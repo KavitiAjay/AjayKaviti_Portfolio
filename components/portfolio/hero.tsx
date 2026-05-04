@@ -46,7 +46,7 @@ export function Hero() {
               src="/avatar.jpg"
               alt="Ajay Kaviti"
               fill
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              className="object-cover hover:grayscale transition-all duration-500"
               priority
             />
           </motion.div>

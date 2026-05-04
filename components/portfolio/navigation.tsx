@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Linkedin, Github, Mail, Download } from "lucide-react";
 import { ThemeToggle } from "@/components/portfolio/theme-toggle";
+import Image from "next/image";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -18,7 +19,7 @@ export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => { setScrolled(window.scrollY > 50); };
+    const handleScroll = () => { setScrolled(window.scrollY > 80); };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -33,11 +34,37 @@ export function Navigation() {
           scrolled ? "bg-background/90 backdrop-blur-md" : "bg-transparent"
         }`}
       >
-        <nav className="flex items-center justify-between px-6 md:px-12 py-6">
-          <motion.a href="#" className="text-xl font-bold tracking-tight" whileHover={{ scale: 1.05 }}>
-            AK<span className="text-primary">.</span>
-          </motion.a>
+        <nav className="flex items-center justify-between px-6 md:px-12 py-4 md:py-6">
 
+          {/* Logo + Avatar on scroll */}
+          <div className="flex items-center gap-3">
+            <motion.a href="#" className="text-xl font-bold tracking-tight" whileHover={{ scale: 1.05 }}>
+              AK<span className="text-primary">.</span>
+            </motion.a>
+
+            {/* Avatar — fades in when scrolled */}
+            <AnimatePresence>
+              {scrolled && (
+                <motion.a
+                  href="#"
+                  initial={{ opacity: 0, scale: 0.6, x: -10 }}
+                  animate={{ opacity: 1, scale: 1, x: 0 }}
+                  exit={{ opacity: 0, scale: 0.6, x: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative w-8 h-8 rounded-full overflow-hidden border border-border hover:border-primary transition-colors"
+                >
+                  <Image
+                    src="/avatar.jpg"
+                    alt="Ajay Kaviti"
+                    fill
+                    className="object-cover"
+                  />
+                </motion.a>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-10">
             {navItems.map((item, i) => (
               <motion.a
@@ -53,6 +80,7 @@ export function Navigation() {
             ))}
           </div>
 
+          {/* Desktop Right Actions */}
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
             <a
@@ -75,12 +103,14 @@ export function Navigation() {
             </motion.a>
           </div>
 
+          {/* Mobile Menu Toggle */}
           <button onClick={() => setIsOpen(true)} className="md:hidden p-2" aria-label="Open menu">
             <Menu className="w-6 h-6" />
           </button>
         </nav>
       </motion.header>
 
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -91,7 +121,18 @@ export function Navigation() {
           >
             <div className="flex flex-col h-full p-6">
               <div className="flex justify-between items-center">
-                <span className="text-xl font-bold">AK<span className="text-primary">.</span></span>
+                <div className="flex items-center gap-3">
+                  <span className="text-xl font-bold">AK<span className="text-primary">.</span></span>
+                  {/* Avatar in mobile menu too */}
+                  <div className="relative w-8 h-8 rounded-full overflow-hidden border border-border">
+                    <Image
+                      src="/avatar.jpg"
+                      alt="Ajay Kaviti"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
                 <div className="flex items-center gap-3">
                   <ThemeToggle />
                   <button onClick={() => setIsOpen(false)} className="p-2" aria-label="Close menu">
@@ -99,6 +140,7 @@ export function Navigation() {
                   </button>
                 </div>
               </div>
+
               <div className="flex flex-col items-center justify-center flex-1 gap-8">
                 {navItems.map((item, i) => (
                   <motion.a
@@ -125,6 +167,7 @@ export function Navigation() {
                   Download Resume
                 </motion.a>
               </div>
+
               <div className="flex justify-center gap-6 py-8">
                 <a href="https://www.linkedin.com/in/ajay-kaviti/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className="p-3 border border-border hover:border-primary hover:text-primary transition-colors">
                   <Linkedin className="w-5 h-5" />

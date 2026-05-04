@@ -28,12 +28,6 @@ export function Contact() {
       href: "mailto:kaviay0408@gmail.com",
       icon: Mail,
     },
-    {
-      label: "Phone",
-      value: "(216) 566-4055",
-      href: "tel:+12165664055",
-      icon: Phone,
-    },
   ];
 
   return (
@@ -124,7 +118,7 @@ export function Contact() {
               </div>
               <div>
                 <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Location</div>
-                <div className="font-medium">Naperville, IL</div>
+                <div className="font-medium">Chicago, IL</div>
                 <div className="text-sm text-muted-foreground mt-1">Open to remote opportunities worldwide</div>
               </div>
             </motion.div>

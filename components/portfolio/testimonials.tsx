@@ -6,7 +6,7 @@ import { useRef } from "react";
 const testimonials = [
   {
     quote:
-      "I have had the privilege of working closely with Ajay Kaviti at Oncourse Home Solutions, and he has been one of the strongest engineers on my team. He builds and maintains production ELT pipelines using dbt and Prefect, optimizes warehouse performance, and consistently delivers clean, reliable data that the business depends on. He also played a key role in our migration from legacy SQL-based workflows to Snowflake, which significantly improved our data processing speed and scalability. What makes Ajay stand out is not just his technical ability — he communicates clearly with both the engineering team and business stakeholders, understands what the data needs to solve, and delivers without needing constant direction. He is the kind of engineer you can rely on completely, and any team would be lucky to have him.",
+      "I have had the privilege of working closely with Ajay Kaviti at Oncourse Home Solutions, and he has been one of the strongest engineers on my team. He builds and maintains production ELT pipelines using dbt and Prefect, optimizes warehouse performance, and consistently delivers clean, reliable data that the business depends on. He also played a key role in our migration from legacy SQL-based workflows to Snowflake, which significantly improved our data processing speed and scalability. What makes Ajay stand out is not just his technical ability, he communicates clearly with both the engineering team and business stakeholders, understands what the data needs to solve, and delivers without needing constant direction. He is the kind of engineer you can rely on completely, and any team would be lucky to have him.",
     name: "T.L.",
     role: "Principal Cloud Data Engineer",
     company: "Oncourse Home Solutions",
@@ -56,7 +56,7 @@ export function Testimonials() {
             <span className="text-6xl text-primary font-serif leading-none block mb-6">&ldquo;</span>
 
             {/* Quote text */}
-            <p className="text-muted-foreground leading-relaxed text-base lg:text-lg mb-10 max-w-4xl">
+            <p className="text-muted-foreground leading-relaxed text-base lg:text-lg mb-10 max-w-4xl text-justify">
               {t.quote}
             </p>
 

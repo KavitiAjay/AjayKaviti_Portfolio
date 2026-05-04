@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown, Linkedin, Github, Mail, Download } from "lucide-react";
+import Image from "next/image";
 
 const roles = ["Data Engineer", "Cloud Architect", "ETL Specialist", "Platform Builder"];
 
@@ -17,7 +18,8 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 px-6 md:px-12 lg:px-24 pt-32 pb-12">
-        {/* Pre-heading with availability badge */}
+
+        {/* Pre-heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -28,30 +30,46 @@ export function Hero() {
           <span className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
             Senior Cloud Data Engineer
           </span>
-          <span className="flex items-center gap-2 px-3 py-1 border border-primary/40 text-xs uppercase tracking-wider text-primary">
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            Available for hire
-          </span>
         </motion.div>
 
-        {/* Main Heading */}
-        <div className="space-y-2 mb-12">
-          <motion.h1
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
+        {/* Photo + Name Row */}
+        <div className="flex flex-col md:flex-row md:items-center gap-10 mb-12">
+
+          {/* Profile Photo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-[clamp(3rem,12vw,10rem)] font-bold leading-[0.85] tracking-tighter"
+            className="relative w-40 h-40 md:w-56 md:h-56 border border-border overflow-hidden flex-shrink-0"
           >
-            AJAY
-          </motion.h1>
-          <motion.h1
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-[clamp(3rem,12vw,10rem)] font-bold leading-[0.85] tracking-tighter"
-          >
-            KAVITI<span className="text-primary">.</span>
-          </motion.h1>
+            <Image
+              src="/avatar.jpg"
+              alt="Ajay Kaviti"
+              fill
+              className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              priority
+            />
+          </motion.div>
+
+          {/* Main Heading */}
+          <div className="space-y-2">
+            <motion.h1
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-[clamp(3rem,12vw,10rem)] font-bold leading-[0.85] tracking-tighter"
+            >
+              AJAY
+            </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-[clamp(3rem,12vw,10rem)] font-bold leading-[0.85] tracking-tighter"
+            >
+              KAVITI<span className="text-primary">.</span>
+            </motion.h1>
+          </div>
         </div>
 
         {/* Animated Roles */}
@@ -76,6 +94,7 @@ export function Hero() {
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
+
           {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
